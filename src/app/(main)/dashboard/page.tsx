@@ -5,6 +5,8 @@ import {
   BookOpen,
   ClipboardCheck,
   LayoutGrid,
+  Calculator,
+  Gamepad2,
 } from 'lucide-react';
 import React, { useState } from 'react';
 
@@ -67,7 +69,6 @@ export default function Dashboard() {
     }
   };
 
-
   const dashboardStats = [
     {
       label: 'Study Streak',
@@ -88,6 +89,29 @@ export default function Dashboard() {
       label: 'Badges Earned',
       value: userProfile?.achievementBadgeIds?.length || 0,
       change: 'View on your profile',
+    },
+  ];
+
+  const features = [
+    {
+      icon: BookOpen,
+      title: 'Unlimited Flashcards',
+      description: 'Create and study flashcard decks on any subject. Master concepts with our smart study modes.',
+    },
+    {
+      icon: ClipboardCheck,
+      title: 'Interactive Quizzes',
+      description: 'Test your knowledge with NCLEX-style quizzes and get immediate feedback to improve.',
+    },
+    {
+      icon: Calculator,
+      title: 'Drug Calculator',
+      description: 'Perform essential dosage calculations quickly and accurately for safe medication administration.',
+    },
+    {
+      icon: Gamepad2,
+      title: 'Engaging Games',
+      description: 'Sharpen your clinical judgment with fun, scenario-based nursing games like Vital Signs Crisis.',
     },
   ];
 
@@ -240,6 +264,28 @@ export default function Dashboard() {
           </CardContent>
         </Card>
       </div>
+
+       <section id="features" className="w-full bg-muted py-20 md:py-32 rounded-lg mt-8">
+            <div className="container mx-auto px-4 md:px-6">
+              <div className="mx-auto max-w-3xl text-center">
+                  <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl">Everything You Need in One Place</h2>
+                  <p className="mt-4 text-muted-foreground md:text-lg">
+                      All the essential tools to help you excel in nursing school and beyond.
+                  </p>
+              </div>
+              <div className="mx-auto mt-12 grid max-w-5xl gap-8 sm:grid-cols-2 md:grid-cols-4">
+                {features.map((feature) => (
+                  <div key={feature.title} className="flex flex-col items-center text-center">
+                    <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-primary/10 text-primary">
+                      <feature.icon className="h-7 w-7" />
+                    </div>
+                    <h3 className="text-lg font-bold">{feature.title}</h3>
+                    <p className="mt-2 text-sm text-muted-foreground">{feature.description}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
     </div>
   );
 }
