@@ -20,3 +20,4 @@ export function getFirebaseConfig() {
 
   return firebaseConfig;
 }
+
