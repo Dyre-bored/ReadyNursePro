@@ -1,6 +1,4 @@
 [build]
-  # This tells Netlify to run the build command inside the 'nextn' folder.
-  base = "nextn"
   command = "npm run build"
   publish = ".next"
 
